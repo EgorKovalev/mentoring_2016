@@ -28,7 +28,7 @@ public class TRTests extends BaseTest {
     }
 
     @Test
-    public void aboutUs(){
+    public void companyHistory(){
         MainPage mainPage = new MainPage();
         mainPage.clickNavigationMenuLink("About Us");
         AboutUsPage aboutUsPage = new AboutUsPage();

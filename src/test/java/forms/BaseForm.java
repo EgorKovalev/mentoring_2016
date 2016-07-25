@@ -1,6 +1,6 @@
 package forms;
 
-import elements.Label;
+import elements.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +41,7 @@ public abstract class BaseForm {
 
     private void checkIfPageIsOpened(){
         long startTime = new Date().getTime();
-        Label element = new Label(titleLocator, name);
+        Link element = new Link(titleLocator, name);
         try {
             element.waitForElementVisible(titleLocator);
             long endTime = new Date().getTime() - startTime;
