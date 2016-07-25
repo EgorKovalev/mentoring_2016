@@ -1,9 +1,7 @@
 package thomsonReutersTests;
 
 import org.testng.annotations.Test;
-import thomsonReutersTests.forms.AllProductsLoginPage;
-import thomsonReutersTests.forms.MainPage;
-import thomsonReutersTests.forms.SearchResultsPage;
+import thomsonReutersTests.forms.*;
 import webdriver.BaseTest;
 
 public class TRTests extends BaseTest {
@@ -20,5 +18,21 @@ public class TRTests extends BaseTest {
         MainPage mainPage = new MainPage();
         mainPage.runSearch("test request");
         new SearchResultsPage();
+    }
+
+    @Test
+    public void browseTopics(){
+        MainPage mainPage = new MainPage();
+        mainPage.clickTopic("Legal");
+        new TopicPage();
+    }
+
+    @Test
+    public void aboutUs(){
+        MainPage mainPage = new MainPage();
+        mainPage.clickNavigationMenuLink("About Us");
+        AboutUsPage aboutUsPage = new AboutUsPage();
+        aboutUsPage.clickDropList("Our Company", "Company History");
+        new CompanyHistoryPage();
     }
 }
