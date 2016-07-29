@@ -3,6 +3,7 @@ package thomsonReutersTests.forms;
 import elements.Link;
 import forms.BaseForm;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 public class AboutUsDropMenu extends BaseForm {
     private final static By titleLocator = By.xpath("//*[contains(@class,'local-navigation-navigation')]");
@@ -11,6 +12,7 @@ public class AboutUsDropMenu extends BaseForm {
 
     public AboutUsDropMenu() {
         super(titleLocator, "About us drop menu");
+        PageFactory.initElements(driver, this);
     }
 
     public void selectDropItem(String name, String itemName){

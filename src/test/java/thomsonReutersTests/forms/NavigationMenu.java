@@ -3,6 +3,7 @@ package thomsonReutersTests.forms;
 import elements.Link;
 import forms.BaseForm;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 public class NavigationMenu extends BaseForm {
     private final static By titleLocator = By.xpath("//*[contains(@class, 'site-specific-header')]");
@@ -10,6 +11,7 @@ public class NavigationMenu extends BaseForm {
 
     public NavigationMenu() {
         super(titleLocator, "Top level menu");
+        PageFactory.initElements(driver, this);
     }
 
     public void clickLink(String name){

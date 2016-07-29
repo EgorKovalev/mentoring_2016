@@ -16,6 +16,7 @@ public class Browser {
 
     public static PropertiesManager props;
     public static Browsers currentBrowser;
+    protected static Logger logger = Logger.getInstance();
 
     private Browser() {  }
 
@@ -45,6 +46,10 @@ public class Browser {
         } finally {
             instance = null;
         }
+    }
+
+    protected void info(final String message) {
+        logger.info(message);
     }
 
     private static void initProperties() {

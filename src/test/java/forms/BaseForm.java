@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.Browser;
+import webdriver.Logger;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ public abstract class BaseForm {
     protected static RemoteWebDriver driver = Browser.getInstance().getDriver();
     protected By titleLocator;
     protected String name;
+    protected static Logger logger = Logger.getInstance();
 
     protected BaseForm(final By titleLoc, final String pageName){
         titleLocator = titleLoc;
@@ -35,7 +37,7 @@ public abstract class BaseForm {
             WebDriverWait wait = new WebDriverWait(driver, DEFAULT_WAIT_SEC);
             wait.until(expectation);
         } catch (Throwable error) {
-            //TODO: add error message to log
+            logger.error("Page loading error");
         }
     }
 
@@ -44,10 +46,10 @@ public abstract class BaseForm {
         Link element = new Link(titleLocator, name);
         try {
             element.waitForElementVisible(titleLocator);
-            long endTime = new Date().getTime() - startTime;
-            //TODO: add 'endTime' to log
+            long period = new Date().getTime() - startTime;
+            logger.info(name + " was loaded in " + period + "ms");
         } catch (Throwable e) {
-            //TODO: add error message to log
+            logger.error("Error while opening page");
         }
     }
 }

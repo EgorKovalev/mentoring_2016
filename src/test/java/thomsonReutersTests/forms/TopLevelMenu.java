@@ -3,6 +3,7 @@ package thomsonReutersTests.forms;
 import elements.Link;
 import forms.BaseForm;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 public class TopLevelMenu extends BaseForm{
     private final static By titleLocator = By.className("global-site-header-nav");
@@ -10,6 +11,7 @@ public class TopLevelMenu extends BaseForm{
 
     public TopLevelMenu() {
         super(titleLocator, "Top level menu");
+        PageFactory.initElements(driver, this);
     }
 
     public void clickLink(String name){
