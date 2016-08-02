@@ -12,7 +12,7 @@ import java.util.List;
 public class AllProductsLoginPage extends BaseForm {
     private final static By titleLocator = By.xpath("//div[contains(@class,'page-header-simple')]");
 
-    @FindBys({@FindBy(xpath = "//*[@class='list-of-links']//li")})
+    @FindBys({@FindBy(xpath = "//div[@class='list-of-links']/div/div/div/ul[@class='list-links']/li")})
     private List<WebElement> productsList;
 
     public AllProductsLoginPage() {

@@ -11,8 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage extends BaseForm {
     private final static By titleLocator = By.xpath("//div[contains(@class,'siteSpecificHeader')]");
     private final static TextBox searchField = new TextBox(By.className("global-search-input"), "Search text box");
-    //private final static Link searchLink = new Link(By.className("global-search-submit"), "Run search button");
-    private static String pathToTopicLink = "//*[contains(@class,'contentItemManualDropdown')]//a[contains(text(),'%s')]";
+    private static String pathToTopicLink = "//div[contains(@class,'contentItemManualDropdown')]/h6/strong/a[contains(text(),'%s')]";
     private TopLevelMenu topLevelMenu = new TopLevelMenu();
     private NavigationMenu navigationMenu = new NavigationMenu();
 

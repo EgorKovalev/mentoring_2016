@@ -6,7 +6,7 @@ import javax.naming.NamingException;
 import java.util.concurrent.TimeUnit;
 
 public class Browser {
-    private static final long IMPLICITY_WAIT = 60L;
+    private static final long IMPLICITY_WAIT = 10L;
     private static final String BROWSER_PROP = "browser";
 
     static final String PROPERTIES_FILE = "selenium.properties";

@@ -11,7 +11,7 @@ import java.util.List;
 public class CompanyHistoryPage extends BaseForm {
     private final static By titleLocator = By.xpath("//*[text()='Thomson Reuters Company History']");
 
-    @FindBy(xpath = "//*[@class='heading-1']")
+    @FindBy(xpath = "//h1[@class='heading-1']")
     private WebElement topicName;
 
     public CompanyHistoryPage() {

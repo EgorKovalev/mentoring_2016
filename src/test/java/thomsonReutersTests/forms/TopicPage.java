@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class TopicPage extends BaseForm {
     private final static By titleLocator = By.xpath("//*[@class='parsys T12_region5']");
 
-    @FindBy(xpath = "//*[@class='heading-1']")
+    @FindBy(xpath = "//h1[@class='heading-1']")
     private WebElement topicName;
 
     public TopicPage() {

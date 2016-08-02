@@ -11,8 +11,8 @@ import java.util.List;
 public class SearchResultsPage extends BaseForm {
     private final static By titleLocator = By.xpath("//*[contains(@class, 'heading-page-header-with-search')]");
 
-    @FindBy(xpath = "//*[@class='cq-searchpromote-results']//li")
-    private List<WebElement> searchResults;
+    @FindBy(css = "div.cq-searchpromote-results ul>li")
+    public List<WebElement> searchResults;
 
     public SearchResultsPage() {
         super(titleLocator, "Search results page");

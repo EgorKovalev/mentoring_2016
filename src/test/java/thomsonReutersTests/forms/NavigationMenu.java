@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NavigationMenu extends BaseForm {
     private final static By titleLocator = By.xpath("//*[contains(@class, 'site-specific-header')]");
-    private final static String linkPath = "//*[@id='primary-navigation-list']//*[contains(text(),'%s')]";
+    private final static String linkPath = "//div[@class='primary-navigation-list-wrapper']/ul/li/*[contains(text(),'%s')]";
 
     public NavigationMenu() {
         super(titleLocator, "Top level menu");
