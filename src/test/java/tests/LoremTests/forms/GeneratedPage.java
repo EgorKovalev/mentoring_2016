@@ -15,7 +15,7 @@ public class GeneratedPage extends BaseForm {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//div[@id='lipsum']/p[" + PARAGRAPH_NUMBER + "]")
+    @FindBy(xpath = "//div[@id='lipsum']/p["+PARAGRAPH_NUMBER+"]")
     private WebElement paragraph;
 
     public WebElement getParagraph(){
@@ -24,7 +24,7 @@ public class GeneratedPage extends BaseForm {
 
     public String getSentenceFromParagraph(int number){
         String text = paragraph.getText();
-        return text.split("\\.")[number];
+        return text.split("\\.| \\? | !")[number];
     }
 }
 
