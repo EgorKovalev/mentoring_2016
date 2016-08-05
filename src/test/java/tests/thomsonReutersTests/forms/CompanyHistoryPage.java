@@ -1,4 +1,4 @@
-package thomsonReutersTests.forms;
+package tests.thomsonReutersTests.forms;
 
 import forms.BaseForm;
 import org.openqa.selenium.By;

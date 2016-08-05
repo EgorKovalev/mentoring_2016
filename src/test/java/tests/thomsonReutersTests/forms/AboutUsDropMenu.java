@@ -1,4 +1,4 @@
-package thomsonReutersTests.forms;
+package tests.thomsonReutersTests.forms;
 
 import elements.Link;
 import forms.BaseForm;

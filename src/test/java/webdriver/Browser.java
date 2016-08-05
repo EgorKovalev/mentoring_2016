@@ -1,6 +1,7 @@
 package webdriver;
 
 import com.google.common.base.Strings;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import javax.naming.NamingException;
 import java.util.concurrent.TimeUnit;

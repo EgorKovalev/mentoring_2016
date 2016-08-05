@@ -1,12 +1,9 @@
-package thomsonReutersTests;
+package tests.thomsonReutersTests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import thomsonReutersTests.forms.*;
+import tests.thomsonReutersTests.forms.*;
 import webdriver.BaseTest;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class TRTests extends BaseTest {
 
