@@ -75,7 +75,7 @@ public abstract class BaseForm {
     }
 
     //doesn't work correctly
-    public void clickEnter(){
+    public void clickEnterJs(){
         js.executeScript("var ev = document.createEvent('KeyboardEvent'); \n" +
                         "ev.initKeyEvent('keydown', true, true, window, false, false, false, false, 13, 0); \n" +
                         "document.body.dispatchEvent(ev);");
@@ -87,5 +87,9 @@ public abstract class BaseForm {
 
     public void pasteFromClipboardViaActions(){
         actions.sendKeys(Keys.chord(Keys.CONTROL,"+v")).sendKeys(Keys.ENTER).build().perform();
+    }
+
+    public void clickEnter(){
+        actions.sendKeys(Keys.ENTER).build().perform();
     }
 }

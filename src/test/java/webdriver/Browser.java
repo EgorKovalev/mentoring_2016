@@ -80,6 +80,10 @@ public class Browser {
         return driver;
     }
 
+    public static String getBrowserName(){
+        return currentBrowser.toString();
+    }
+
     public enum Browsers {
         FIREFOX("firefox"),
         IEXPLORE("iexplore"),

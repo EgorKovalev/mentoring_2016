@@ -47,7 +47,7 @@ public abstract class BrowserFactory {
         }
 
         try {
-            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilitiesProxy);
+            driver = new RemoteWebDriver(new URL("http://localhost:6666/wd/hub"), capabilitiesProxy);
         }
         catch(MalformedURLException ex){
             ex.printStackTrace();
