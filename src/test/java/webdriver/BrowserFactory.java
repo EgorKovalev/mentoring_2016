@@ -1,7 +1,7 @@
 package webdriver;
 
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import webdriver.Browser.Browsers;
@@ -12,33 +12,34 @@ import java.net.URL;
 public abstract class BrowserFactory {
 
     private static RemoteWebDriver setUp(final Browsers type) {
-        DesiredCapabilities capabilitiesProxy = new DesiredCapabilities();
-        capabilitiesProxy.setPlatform(Platform.WINDOWS);
-        RemoteWebDriver driver = null;
+
+        ThreadLocal<RemoteWebDriver> threadDriver = new ThreadLocal<RemoteWebDriver>();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
 
         switch (type) {
             case FIREFOX:
-                capabilitiesProxy.setBrowserName("firefox");
-                //driver = new FirefoxDriver(capabilitiesProxy);
+                FirefoxProfile fp = new FirefoxProfile();
+                capabilities.setCapability(FirefoxDriver.PROFILE, fp);
+                capabilities.setBrowserName(DesiredCapabilities.firefox().getBrowserName());
                 break;
 
             case CHROME:
-                capabilitiesProxy.setBrowserName("chrome");
+                //capabilitiesProxy.setBrowserName("chrome");
                 //TODO: in progress
                 break;
 
             case IEXPLORE:
-                capabilitiesProxy.setBrowserName("IE");
+                //capabilitiesProxy.setBrowserName("IE");
                 //TODO: in progress
                 break;
 
             case OPERA:
-                capabilitiesProxy.setBrowserName("opera");
+                //capabilitiesProxy.setBrowserName("opera");
                 //TODO: in progress
                 break;
 
             case SAFARI:
-                capabilitiesProxy.setBrowserName("safari");
+                //capabilitiesProxy.setBrowserName("safari");
                 //TODO: in progress
                 break;
 
@@ -47,13 +48,13 @@ public abstract class BrowserFactory {
         }
 
         try {
-            driver = new RemoteWebDriver(new URL("http://localhost:6666/wd/hub"), capabilitiesProxy);
+            threadDriver.set(new RemoteWebDriver(new URL("http://localhost:6666/wd/hub"), capabilities));
         }
-        catch(MalformedURLException ex){
-            ex.printStackTrace();
+        catch(MalformedURLException e){
+            e.printStackTrace();
         }
 
-        return driver;
+        return threadDriver.get();
     }
 
     public static RemoteWebDriver setUp(final String type) throws NamingException {
